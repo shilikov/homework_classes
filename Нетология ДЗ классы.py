@@ -143,11 +143,11 @@ class Lecturer(Mentor):
                 self.person2[self.name] = ("{:.2f}".format(round(sum(self.lector_grades['Git'],
                                                                  2)) / len(self.lector_grades['Git'])))
 
-    def __lt__(self, *args, **kwargs):
-        if self.person < self.person:
+    def __lt__(self, other):
+        if self.person < other.person:
             print('Not a Character!')
             return
-        return self.person < self.person, 'gggg'
+        return self.person < other.person, 'gggg'
 
 
 
