@@ -1,285 +1,4 @@
-
-
-
-
 from random import randint
-
-from termcolor import cprint
-
-
-
-
-
-
-
-class Student:
-    def __init__(self, name, surname, gender, *course):
-        self.name = name
-        self.surname = surname
-        self.gender = gender
-        self.finished_courses = []
-        self.courses_in_progress = []
-        self.grades = {}
-        self.person = {}
-        self.course = course
-
-
-
-
-    def __str__(self):
-        return f'Имя - {self.name}, Фамилия - {self.surname}, {self.finished_courses}, "\n"' \
-               f'Pytson - {self.grades["Python"]}, "\n" Git - {self.grades["Git"]}"\n"' \
-               f' средний бал {self.person[self.name]}'
-
-
-
-    def rate_hw(self, lekt, course, grade):
-        if isinstance(lekt, Lecturer) and course in lecturer.courses_attached \
-                and course in lekt.courses_in_progress:
-            if course in lekt.lector_grades:
-                lekt.lector_grades[course] += [grade]
-
-            else:
-                lekt.lector_grades[course] = [grade]
-
-        else:
-            return 'Ошибка'
-        return f"{lekt.lector_grades[course]}"
-
-
-
-    def peson_grade(self, grade,):
-        if self.course in self.grades:
-            self.person[self.name] += grade
-        else:
-                self.pers = self.grades['Python'] + self.grades['Git']
-                # self.jik[self.name] = float(sum(self.grades['Python'] + self.grades['Git']) / len(self.pers))
-                self.person[self.name] = float(sum(self.grades['Python'] + self.grades['Git']) / len(self.pers))
-
-
-    def student_act(self):
-
-            dese = randint(1, 6)
-            if dese == 1:
-                students.rate_hw(lecturer, 'Python', 10) and \
-                students.rate_hw(lecturer, 'Git', 8)
-                lecturer.peson_grade(lecturer, 'Elizar')
-                lecturer.peson_grade(lecturer, 'Some')
-
-
-            elif dese == 4:
-                students.rate_hw(lecturer, 'Python', 9) and \
-                students.rate_hw(lecturer, 'Git', 10)
-                lecturer.peson_grade(lecturer, 'Elizar')
-                lecturer.peson_grade(lecturer, 'Some')
-
-
-
-            elif dese == 5:
-                students.rate_hw(lecturer, 'Python', 8) and \
-                students.rate_hw(lecturer, 'Git', 9)
-                lecturer.peson_grade(lecturer, 'Elizar')
-                lecturer.peson_grade(lecturer, 'Some')
-
-
-            else:
-                students.rate_hw(lecturer, 'Python', 10) and \
-                students.rate_hw(lecturer, 'Git', 10)
-                lecturer.peson_grade(lecturer, 'Elizar')
-                lecturer.peson_grade(lecturer, 'Some')
-
-
-
-
-
-class Mentor:
-    def __init__(self, name, surname):
-        self.name = name
-        self.surname = surname
-
-
-    def __str__(self):
-        pass
-
-
-
-
-class Lecturer(Mentor):
-    def __init__(self, name, surname, *course):
-        super().__init__(name=name, surname=surname)
-        self.name = name
-        self.courses_attached = []
-        self.lector_grades = {}
-        self.courses_in_progress = []
-        self.person = {}
-        self.course = course
-        self.person1 = {}
-        self.person2 = {}
-
-
-
-
-
-    def __str__(self):
-        return f'Имя - {self.name}, Фамилия - {self.surname}, "\n"' \
-               f'Pytson - {self.lector_grades["Python"]}, "\n" Git - {self.lector_grades["Git"]}"\n"' \
-               f'общий средний бал за лекции {self.person[self.name]}"\n"' \
-               f'средний бал за лекции Python - {self.person1}"\n"' \
-               f'средний бал за лекции Git - {self.person2}'
-
-    def reed_lection(self, cours,):
-        print(f'ghjxbnfk ntrwb - {cours}')
-
-    def peson_grade(self, grade, name, *course):
-        if self.course in self.lector_grades:
-            print()
-            self.person[self.name] += grade
-        else:
-                self.pers = self.lector_grades['Python'] + self.lector_grades['Git']
-                # self.jik = round(sum(self.lector_grades['Python'] + self.lector_grades['Git']) / len(self.pers), 2)
-                self.person[name] = round(sum(self.lector_grades['Python'] + self.lector_grades['Git']) / len(self.pers), 2)
-                self.person1[self.name] = ("{:.2f}".format(round(sum(self.lector_grades['Python'],
-                                                                 2)) / len(self.lector_grades['Python'])))
-                self.person2[self.name] = ("{:.2f}".format(round(sum(self.lector_grades['Git'],
-                                                                 2)) / len(self.lector_grades['Git'])))
-
-    def __lt__(self, other):
-        if self.person < other.person:
-            print('Not a Character!')
-            return
-        return self.person < other.person, 'gggg'
-
-
-
-    def ickvel(self):
-        if lecturer.person['Elizar'] < lecturer.person['Some']:
-            print('лучший преподователь Some')
-        else:
-            print('лучший преподователь Elizar')
-
-
-    def act(self):
-        dises = randint(1, 2)
-        if dises == 1:
-            self.reed_lection('Paython') and self.reed_lection('Git')
-        else:
-            self.reed_lection('Paython') and self.reed_lection('Git')
-
-# TODO реализовать случайные оценки
-
-class Reviewer(Mentor):
-    def __init__(self, name, surname):
-        super().__init__(name=name, surname=surname)
-        self.name = name
-        self.surname = surname
-        self.courses_attached = []
-
-    def rate_hw(self, student, course, grade):
-        if isinstance(student, Student) and course in self.courses_attached \
-                and course in student.courses_in_progress:
-            if course in student.grades:
-                student.grades[course] += [grade]
-            else:
-                student.grades[course] = [grade]
-        else:
-            return 'Ошибка'
-        return f"{student.grades[course]}"
-
-    def rvw_act(self):
-
-        dese = randint(1, 6)
-        if dese == 1:
-            reviewer.rate_hw(students, 'Python', 10) and \
-            reviewer.rate_hw(students, 'Git', 8)
-            students.peson_grade(students)
-        elif dese == 4:
-            reviewer.rate_hw(students, 'Python', 9) and \
-            reviewer.rate_hw(students, 'Git', 10)
-            students.peson_grade(students)
-
-        elif dese == 5:
-            reviewer.rate_hw(students, 'Python', 8) and \
-            reviewer.rate_hw(students, 'Git', 9)
-            students.peson_grade(students)
-
-        else:
-            reviewer.rate_hw(students, 'Python', 10) and \
-            reviewer.rate_hw(students, 'Git', 10)
-            students.peson_grade(students)
-
-
-# реализовать случайные оценки
-
-student = [Student(name="Александр", surname="Фролов", gender='Mail'),
-            Student(name="Валерия", surname="Христофорова", gender='Famail',),
-            Student(name="Дмитрий", surname="Михеев", gender='Mail',)
-            ]
-
-for students in student:
-    students.courses_in_progress += ['Python']
-    students.courses_in_progress += ['Git']
-    students.finished_courses = ['введение в програмирование']
-
-
-lectur = [Lecturer(name='Some', surname='odoc'),
-            Lecturer(name='Elizar', surname='Fishman')]
-
-for lecturer in lectur:
-    lecturer.courses_attached += ['Python']
-    lecturer.courses_attached += ['Git']
-    lecturer.courses_in_progress += ['Python']
-    lecturer.courses_in_progress += ['Git']
-
-
-
-reviewer = Reviewer('Some', 'Buddy')
-reviewer.courses_attached += ['Python']
-reviewer.courses_attached += ['Git']
-
-
-
-for week in range(1, 62, 5):
-    cprint(f'========================== {week} ===========================', 'cyan')
-    for students in student:
-        reviewer.rvw_act()
-        # print(students.person)
-
-
-
-    cprint(f'========================== игтоги {week} недели ===========================', 'cyan')
-    cprint(f'========================== студенты ===========================', 'cyan')
-
-    for students in student:
-        cprint(f'{students}', color="yellow")
-
-
-
-        # print(students.person)
-    cprint(f'========================== преподы ===========================', 'cyan')
-    for lecturer in lectur:
-        students.student_act()
-        cprint(lecturer, color='blue')
-        lecturer.person['Some'].__lt__(lecturer.person['Elizar'])
-        # lecturer.ickvel()
-        # lecturer.peson_grade(lecturer, 'Elizar')
-        # lecturer.peson_grade(lecturer, 'Some')
-        print(lecturer.person['Elizar'])
-        print(lecturer.person['Some'])
-        print(f'{(lecturer.person["Elizar"]) == (lecturer.person["Some"])}')
-        print(lecturer.person1)
-        # break
-
-
-        # print(lecturer.person['Elizar'] == (lecturer.person['Some']))
-
-        print()
-
-
-
-        # lecturer.person.setdefault(lecturer.name), lecturer.person.setdefault(lecturer.name)
-        # print(lecturer.person['Elizar'])
-
-
 
 
 # Домашнее задание к лекции «Объекты и классы. Инкапсуляция, наследование и полиморфизм»
@@ -350,6 +69,344 @@ print(some_student)
 # (в качестве аргумента принимаем список лекторов и название курса).
 #
 #
+
+class Student:
+    def __init__(self, name, surname, gender):
+        self.name = name
+        self.surname = surname
+        self.gender = gender
+        self.finished_courses = []
+        self.courses_in_progress = []
+        self.grades = {}
+        self.grad = {}
+        self.python = {}
+        self.git = {}
+
+    def __str__(self):
+        pass
+        return f'{self.name, self.surname}"\n' \
+               f' средний бал за лекции {"{:.1f}".format(self.grad)}"\n' \
+               f'Курсы в процессе изучения: {self.courses_in_progress}"\n' \
+               f'Завершенные курсы: {str(self.finished_courses)}'
+
+    def add_courses(self, course_name):
+        self.finished_courses.append(course_name)
+
+    def rate_hw(self, lecturer, course, grade):
+        if isinstance(lecturer, Lecturer) and course in lecturer.courses_attached and course in self.courses_in_progress:
+            if course in lecturer.grades:
+                if grade in range(1, 11):
+                    lecturer.grades[course] += [grade]
+            else:
+                lecturer.grades[course] = [grade]
+        else:
+            return 'Ошибка'
+
+    def averag_ecore(self):
+        self.i = self.grades['Python'] + self.grades['Git']
+        self.grad = (sum(self.i) / len(self.i))
+        print('{:.1f}'.format(self.grad))
+
+    def __lt__(self, other):
+        if not isinstance(other, Student):
+            print('Not a Student!')
+            return
+        if self.grad < other.grad:
+            print(f'Лучший студент {self}')
+            return self.grad < other.grad
+
+        if other.grad < self.grad:
+            print(f'Лучший студент {other}')
+            return self.grad < other.grad
+
+
+
+    def ikvel(self, oser, cours):
+        if not isinstance(oser, Student):
+            print('Not a Lecturer!')
+            return
+        self.j = self.grades[cours]
+        oser.j = oser.grades[cours]
+        self.python = (sum(self.j) / len(self.j))
+        oser.python = (sum(oser.j) / len(oser.j))
+        if self.python > oser.python:
+            print(f'лучший студент {cours} {self}')
+        else:
+            print(f'лучший студент {cours} {oser}')
+            return self.python > oser.python
+
+
+    # def ikvel(self, oser, cours):
+    #     if not isinstance(oser, Student):
+    #         print('Not a Lecturer!')
+    #         return
+    #     self.j = self.grades[cours]
+    #     oser.j = oser.grades[cours]
+    #     self.python = (sum(self.j) / len(self.j))
+    #     oser.python = (sum(oser.j) / len(oser.j))
+    #     if self.python > oser.python:
+    #         print(f'лучший студент Python {self}')
+    #     elif print(f'лучший студент Python {oser}'):
+    #        return
+    #     else:
+    #         self.k = self.grades[cours]
+    #         oser.k = oser.grades[cours]
+    #         self.git = (sum(self.j) / len(self.j))
+    #         oser.git = (sum(self.j) / len(self.j))
+    #         if self.python > oser.python:
+    #             print(f'лучший студент Git {self}')
+    #         else:
+    #             print(f'лучший студент Git {oser}')
+
+
+
+
+
+class Mentors:
+    def __init__(self, name, surname):
+        self.name = name
+        self.surname = surname
+        self.courses_attached = []
+
+class Reviewer(Mentors):
+    def __init__(self, name, surname):
+        super().__init__(name, surname)
+
+    def __str__(self):
+        return f'{self.name}, {self.surname}"\n"'
+
+    def rate_hw(self, student, course, grade):
+        if isinstance(student, Student) and course in self.courses_attached and course in student.courses_in_progress:
+            if course in student.grades:
+                student.grades[course] += [grade]
+            else:
+                student.grades[course] = [grade]
+        else:
+            return 'Ошибка'
+
+class Lecturer(Mentors):
+    def __init__(self, name, sorname):
+        super().__init__(name, sorname)
+        self.grades = {}
+        self.name = name
+        self.grad = {}
+        self.python ={}
+        self.git = {}
+
+    def __str__(self):
+        return f'{self.name, self.surname}"\n' \
+               f' средний бал за лекции {"{:.1f}".format(self.grad)}"'
+
+    def averag_ecore(self):
+        self.i = self.grades['Python'] + self.grades['Git']
+        self.grad = (sum(self.i) / len(self.i))
+        print('{:.1f}'.format(self.grad))
+
+    def __lt__(self, other):
+        if not isinstance(other, Lecturer):
+            print('Not a Lecturer!')
+            return
+        if self.grad < other.grad:
+            print(f'Лучший преподователь {self}')
+            return self.grad < other.grad
+
+        if other.grad < self.grad:
+            print(f'Лучший преподователь {other}')
+            return self.grad < other.grad
+
+
+    def ikvel(self, oser, cours):
+        if not isinstance(oser, Lecturer):
+            print('Not a Lecturer!')
+            return
+        self.j = self.grades[cours]
+        oser.j = oser.grades[cours]
+        self.python = (sum(self.j) / len(self.j))
+        oser.python = (sum(oser.j) / len(oser.j))
+        if self.python > oser.python:
+            print(f'лучший преподователь {cours} {self}')
+        else:
+            print(f'лучший преподователь {cours} {oser}')
+            return self.python > oser.python
+        # if not isinstance(oser, Lecturer):
+        #     print('Not a Lecturer!')
+        #     return
+        # self.k = self.grades[cours]
+        # oser.k = oser.grades[cours]
+        # self.git = (sum(self.j) / len(self.j))
+        # oser.git = (sum(self.j) / len(self.j))
+        # if self.git > oser.git:
+        #     print(f'лучший преподователь Git {self}')
+        # else:
+        #     print(f'лучший преподователь Git {oser}')
+        #     return self.git > oser.git
+
+
+
+
+
+
+ruoy = Student('Ruoy', 'Eman', 'your_gender')
+ruoy.courses_in_progress += ['Python']
+ruoy.courses_in_progress += ['Git']
+sader = Student('Sader', 'Derty', 'your_gender')
+sader.courses_in_progress += ['Python']
+sader.courses_in_progress += ['Git']
+ruoy.add_courses('Введение в программирование')
+sader.add_courses('Введение в программирование')
+
+
+
+
+
+Some = Reviewer('Some', 'Buddy')
+Some.courses_attached += ['Python']
+Some.courses_attached += ['Git']
+dan = Reviewer('Denis', 'Lim')
+dan.courses_attached += ['Python']
+dan.courses_attached += ['Git']
+
+
+rew1 = Reviewer('Some', 'Buddy')
+rew1.courses_attached += ['Python']
+rew1.courses_attached += ['Git']
+
+elizar = Lecturer('Elizar', 'Fishman')
+elizar.courses_attached += ['Python']
+elizar.courses_attached += ['Git']
+ripli = Lecturer('Ripli', 'Sun')
+ripli.courses_attached += ['Python']
+ripli.courses_attached += ['Git']
+
+sader.rate_hw(elizar, 'Python', randint(7, 10))
+sader.rate_hw(elizar, 'Python', randint(7, 10))
+sader.rate_hw(elizar, 'Python', randint(7, 10))
+sader.rate_hw(elizar, 'Git', randint(7, 10))
+sader.rate_hw(elizar, 'Git', randint(7, 10))
+sader.rate_hw(elizar, 'Git', randint(7, 10))
+ruoy.rate_hw(elizar, 'Python', randint(7, 10))
+ruoy.rate_hw(elizar, 'Python', randint(7, 10))
+ruoy.rate_hw(elizar, 'Python', randint(7, 10))
+ruoy.rate_hw(elizar, 'Git', randint(7, 10))
+ruoy.rate_hw(elizar, 'Git', randint(7, 10))
+ruoy.rate_hw(elizar, 'Git', randint(7, 10))
+sader.rate_hw(ripli, 'Python', randint(7, 10))
+sader.rate_hw(ripli, 'Python', randint(7, 10))
+sader.rate_hw(ripli, 'Python', randint(7, 10))
+sader.rate_hw(ripli, 'Git', randint(7, 10))
+sader.rate_hw(ripli, 'Git', randint(7, 10))
+sader.rate_hw(ripli, 'Git', randint(7, 10))
+ruoy.rate_hw(ripli, 'Python', randint(7, 10))
+ruoy.rate_hw(ripli, 'Python', randint(7, 10))
+ruoy.rate_hw(ripli, 'Python', randint(7, 10))
+ruoy.rate_hw(ripli, 'Git', randint(7, 10))
+ruoy.rate_hw(ripli, 'Git', randint(7, 10))
+ruoy.rate_hw(ripli, 'Git', randint(7, 10))
+
+
+
+
+Some.rate_hw(ruoy, 'Python', randint(7, 10))
+Some.rate_hw(ruoy, 'Python', randint(7, 10))
+Some.rate_hw(ruoy, 'Python', randint(7, 10))
+Some.rate_hw(sader, 'Python', randint(7, 10))
+Some.rate_hw(sader, 'Python', randint(7, 10))
+Some.rate_hw(sader, 'Python', randint(7, 10))
+Some.rate_hw(ruoy, 'Git', randint(7, 10))
+Some.rate_hw(ruoy, 'Git', randint(7, 10))
+Some.rate_hw(ruoy, 'Git', randint(7, 10))
+Some.rate_hw(sader, 'Git', randint(7, 10))
+Some.rate_hw(sader, 'Git', randint(7, 10))
+Some.rate_hw(sader, 'Git', randint(7, 10))
+
+dan.rate_hw(ruoy, 'Python', randint(7, 10))
+dan.rate_hw(ruoy, 'Python', randint(7, 10))
+dan.rate_hw(ruoy, 'Python', randint(7, 10))
+dan.rate_hw(sader, 'Python', randint(7, 10))
+dan.rate_hw(sader, 'Python', randint(7, 10))
+dan.rate_hw(sader, 'Python', randint(7, 10))
+dan.rate_hw(ruoy, 'Git', randint(7, 10))
+dan.rate_hw(ruoy, 'Git', randint(7, 10))
+dan.rate_hw(ruoy, 'Git', randint(7, 10))
+dan.rate_hw(sader, 'Git', randint(7, 10))
+dan.rate_hw(sader, 'Git', randint(7, 10))
+dan.rate_hw(sader, 'Git', randint(7, 10))
+
+print('{txt:>30}'.format(txt='общие данные проверяющего'))
+print()
+print(dan)
+print()
+print('{txt:>30}'.format(txt='общие данные проверяющего'))
+print()
+print(Some)
+print()
+
+lecturer = Lecturer
+print('{txt:>30}'.format(txt='средний бал студента elizar'))
+print()
+lecturer.averag_ecore(elizar)
+print()
+print('{txt:>30}'.format(txt='средний бал студента ripli'))
+print()
+lecturer.averag_ecore(ripli)
+print()
+print('{txt:>30}'.format(txt='общие данные преподователя'))
+print()
+print(f'{elizar}')
+print()
+print('{txt:>30}'.format(txt='общие данные преподователя'))
+print()
+print(ripli)
+print()
+
+student = Student
+print('{txt:>30}'.format(txt='средний бал студента sader'))
+print()
+student.averag_ecore(sader)
+print()
+print('{txt:>30}'.format(txt='средний бал студента ruoy'))
+print()
+student.averag_ecore(ruoy)
+print()
+print('{txt:>30}'.format(txt='общие данные студента'))
+print()
+print(ruoy)
+print()
+print('{txt:>30}'.format(txt='общие данные студента'))
+print()
+print(sader)
+print()
+#
+
+
+print('{txt:>30}'.format(txt='лучший преподователь курса Python'))
+print()
+lecturer.ikvel(elizar, ripli, 'Python')
+print()
+print('{txt:>30}'.format(txt='лучший преподователь курса Git'))
+print()
+lecturer.ikvel(elizar, ripli, 'Git')
+print()
+print('{txt:>30}'.format(txt='лучший студент курса Python'))
+print()
+student.ikvel(ruoy, sader, 'Python')
+print()
+
+print('{txt:>30}'.format(txt='лучший студент курса Git'))
+print()
+print(student.ikvel(ruoy, sader, 'Git'))
+
+print('{txt:>30}'.format(txt='лучший студент'))
+print()
+print(sader.__lt__(ruoy))
+print('{txt:>30}'.format(txt='лучший преподователь'))
+print()
+print(elizar.__lt__(ripli))
+
+
+
+
+
 
 
 
