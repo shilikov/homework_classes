@@ -278,59 +278,54 @@ ripli = Lecturer('Ripli', 'Sun')
 ripli.courses_attached += ['Python']
 ripli.courses_attached += ['Git']
 
-sader.rate_hw(elizar, 'Python', randint(7, 10))
-sader.rate_hw(elizar, 'Python', randint(7, 10))
-sader.rate_hw(elizar, 'Python', randint(7, 10))
-sader.rate_hw(elizar, 'Git', randint(7, 10))
-sader.rate_hw(elizar, 'Git', randint(7, 10))
-sader.rate_hw(elizar, 'Git', randint(7, 10))
-ruoy.rate_hw(elizar, 'Python', randint(7, 10))
-ruoy.rate_hw(elizar, 'Python', randint(7, 10))
-ruoy.rate_hw(elizar, 'Python', randint(7, 10))
-ruoy.rate_hw(elizar, 'Git', randint(7, 10))
-ruoy.rate_hw(elizar, 'Git', randint(7, 10))
-ruoy.rate_hw(elizar, 'Git', randint(7, 10))
-sader.rate_hw(ripli, 'Python', randint(7, 10))
-sader.rate_hw(ripli, 'Python', randint(7, 10))
-sader.rate_hw(ripli, 'Python', randint(7, 10))
-sader.rate_hw(ripli, 'Git', randint(7, 10))
-sader.rate_hw(ripli, 'Git', randint(7, 10))
-sader.rate_hw(ripli, 'Git', randint(7, 10))
-ruoy.rate_hw(ripli, 'Python', randint(7, 10))
-ruoy.rate_hw(ripli, 'Python', randint(7, 10))
-ruoy.rate_hw(ripli, 'Python', randint(7, 10))
-ruoy.rate_hw(ripli, 'Git', randint(7, 10))
-ruoy.rate_hw(ripli, 'Git', randint(7, 10))
-ruoy.rate_hw(ripli, 'Git', randint(7, 10))
+for k in range(1, 11):
+    sader.rate_hw(elizar, 'Python', randint(7, 10))
+    sader.rate_hw(elizar, 'Git', randint(7, 10))
+    sader.rate_hw(ripli, 'Python', randint(7, 10))
+    sader.rate_hw(ripli, 'Git', randint(7, 10))
+
+    ruoy.rate_hw(elizar, 'Python', randint(7, 10))
+    ruoy.rate_hw(elizar, 'Git', randint(7, 10))
+    ruoy.rate_hw(ripli, 'Python', randint(7, 10))
+    ruoy.rate_hw(ripli, 'Git', randint(7, 10))
+
+    Some.rate_hw(ruoy, 'Python', randint(7, 10))
+    Some.rate_hw(sader, 'Python', randint(7, 10))
+    Some.rate_hw(ruoy, 'Git', randint(7, 10))
+    Some.rate_hw(sader, 'Git', randint(7, 10))
 
 
+    dan.rate_hw(ruoy, 'Python', randint(7, 10))
+    dan.rate_hw(sader, 'Python', randint(7, 10))
+    dan.rate_hw(ruoy, 'Git', randint(7, 10))
+    dan.rate_hw(sader, 'Git', randint(7, 10))
 
 
-Some.rate_hw(ruoy, 'Python', randint(7, 10))
-Some.rate_hw(ruoy, 'Python', randint(7, 10))
-Some.rate_hw(ruoy, 'Python', randint(7, 10))
-Some.rate_hw(sader, 'Python', randint(7, 10))
-Some.rate_hw(sader, 'Python', randint(7, 10))
-Some.rate_hw(sader, 'Python', randint(7, 10))
-Some.rate_hw(ruoy, 'Git', randint(7, 10))
-Some.rate_hw(ruoy, 'Git', randint(7, 10))
-Some.rate_hw(ruoy, 'Git', randint(7, 10))
-Some.rate_hw(sader, 'Git', randint(7, 10))
-Some.rate_hw(sader, 'Git', randint(7, 10))
-Some.rate_hw(sader, 'Git', randint(7, 10))
+enrollee = [ruoy, sader
+            ]
+cour = ['Python','Git'
+        ]
+def st_grades(course, *split):
+    i = []
+    while len(i) < len(split):
+        i.append(enrollee)
+        k = (i[0][0].grades[course])
+        k += i[0][1].grades[course]
+        print(f'средний бал всех студентов за курс {course} - {"{:.1f}".format(sum(k) / len(k))}')
+        break
 
-dan.rate_hw(ruoy, 'Python', randint(7, 10))
-dan.rate_hw(ruoy, 'Python', randint(7, 10))
-dan.rate_hw(ruoy, 'Python', randint(7, 10))
-dan.rate_hw(sader, 'Python', randint(7, 10))
-dan.rate_hw(sader, 'Python', randint(7, 10))
-dan.rate_hw(sader, 'Python', randint(7, 10))
-dan.rate_hw(ruoy, 'Git', randint(7, 10))
-dan.rate_hw(ruoy, 'Git', randint(7, 10))
-dan.rate_hw(ruoy, 'Git', randint(7, 10))
-dan.rate_hw(sader, 'Git', randint(7, 10))
-dan.rate_hw(sader, 'Git', randint(7, 10))
-dan.rate_hw(sader, 'Git', randint(7, 10))
+
+leckturrr = [elizar, ripli]
+def lk_grades(course, *split):
+    i = []
+    while len(i) < len(split):
+        i.append(leckturrr)
+        k = (i[0][0].grades[course])
+        k += i[0][1].grades[course]
+        print(f'средний бал всех лекторов {course}- {"{:.1f}".format(sum(k) / len(k))}')
+        break
+
+
 
 print('{txt:>30}'.format(txt='общие данные проверяющего'))
 print()
@@ -378,7 +373,6 @@ print(sader)
 print()
 #
 
-
 print('{txt:>30}'.format(txt='лучший преподователь курса Python'))
 print()
 lecturer.ikvel(elizar, ripli, 'Python')
@@ -402,6 +396,14 @@ print(sader.__lt__(ruoy))
 print('{txt:>30}'.format(txt='лучший преподователь'))
 print()
 print(elizar.__lt__(ripli))
+print()
+print('{txt:>30}'.format(txt='средний бал преподователей в рамках курса'))
+print()
+lk_grades('Python', *enrollee)
+print()
+print('{txt:>30}'.format(txt='средний бал студентов в рамках курса'))
+print()
+st_grades('Python', *enrollee)
 
 
 
