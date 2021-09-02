@@ -103,9 +103,13 @@ class Student:
             return 'Ошибка'
 
     def averag_ecore(self):
-        self.i = self.grades['Python'] + self.grades['Git']
-        self.grad = (sum(self.i) / len(self.i))
-        print('{:.1f}'.format(self.grad))
+        my_list = []
+        for grade in self.grades.values():
+            for mark in grade:
+                my_list.append(mark)
+        self.grad = sum(my_list) / len(my_list)
+        return self.grad
+
 
     def __lt__(self, other):
         if not isinstance(other, Student):
@@ -198,9 +202,12 @@ class Lecturer(Mentors):
                f' средний бал за лекции {"{:.1f}".format(self.grad)}"'
 
     def averag_ecore(self):
-        self.i = self.grades['Python'] + self.grades['Git']
-        self.grad = (sum(self.i) / len(self.i))
-        print('{:.1f}'.format(self.grad))
+        my_list = []
+        for grade in self.grades.values():
+            for mark in grade:
+                my_list.append(mark)
+        self.grad = sum(my_list) / len(my_list)
+        return self.grad
 
     def __lt__(self, other):
         if not isinstance(other, Lecturer):
@@ -254,6 +261,11 @@ sader.courses_in_progress += ['Python']
 sader.courses_in_progress += ['Git']
 ruoy.add_courses('Введение в программирование')
 sader.add_courses('Введение в программирование')
+mas = Student('asdf', 'asdsdsada', 'werrwr')
+mas.courses_in_progress += ['Python']
+mas.courses_in_progress += ['Git']
+
+
 
 
 
@@ -299,6 +311,9 @@ for k in range(1, 11):
     dan.rate_hw(sader, 'Python', randint(7, 10))
     dan.rate_hw(ruoy, 'Git', randint(7, 10))
     dan.rate_hw(sader, 'Git', randint(7, 10))
+    dan.rate_hw(mas, 'Git', randint(10, 10))
+
+
 
 
 enrollee = [ruoy, sader
@@ -314,6 +329,17 @@ def st_grades(course, *split):
         print(f'средний бал всех студентов за курс {course} - {"{:.1f}".format(sum(k) / len(k))}')
         break
 
+def st_grade_kurs(course, enrollee):
+    mylist = []
+    for student in enrollee:
+        if student.grades.get(course) != None:
+            for kurs in student.grades.get(course):
+                mylist.append(kurs)
+        else:
+            pass
+    avg_grade_kurs = sum(mylist) / len(mylist)
+    print(f'средний бал всех студентов {course}- {"{:.1f}".format(avg_grade_kurs)}')
+    return avg_grade_kurs
 
 leckturrr = [elizar, ripli]
 def lk_grades(course, *split):
@@ -324,6 +350,18 @@ def lk_grades(course, *split):
         k += i[0][1].grades[course]
         print(f'средний бал всех лекторов {course}- {"{:.1f}".format(sum(k) / len(k))}')
         break
+
+def lk_grade_kurs(course, leckturrr):
+    mylist = []
+    for lekt in leckturrr:
+        if lekt.grades.get(course) != None:
+            for kurs in lekt.grades.get(course):
+                mylist.append(kurs)
+        else:
+            pass
+    avg_grade_kurs = sum(mylist) / len(mylist)
+    print(f'средний бал всех преподователей {course}- {"{:.1f}".format(avg_grade_kurs)}')
+    return avg_grade_kurs
 
 
 
@@ -400,10 +438,23 @@ print()
 print('{txt:>30}'.format(txt='средний бал преподователей в рамках курса'))
 print()
 lk_grades('Python', *leckturrr)
+lk_grade_kurs('Git', leckturrr)
 print()
 print('{txt:>30}'.format(txt='средний бал студентов в рамках курса'))
 print()
-st_grades('Python', *enrollee)
+st_grades('Git', *enrollee)
+st_grade_kurs('Python', enrollee)
+
+
+
+
+
+
+
+
+
+
+
 
 
 
