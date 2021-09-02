@@ -337,9 +337,9 @@ def st_grade_kurs(course, enrollee):
                 st_list.append(kurs)
         else:
             pass
-    avg_grade_kurs = sum(st_list) / len(st_list)
-    print(f'средний бал всех студентов {course}- {"{:.1f}".format(avg_grade_kurs)}')
-    return avg_grade_kurs
+    std_grade_kurs = sum(st_list) / len(st_list)
+    print(f'средний бал всех студентов {course}- {"{:.1f}".format(std_grade_kurs)}')
+    return std_grade_kurs
 
 leckturrr = [elizar, ripli]
 def lk_grades(course, *split):
@@ -359,9 +359,9 @@ def lk_grade_kurs(course, leckturrr):
                 lk_list.append(kurs)
         else:
             pass
-    avg_grade_kurs = sum(lk_list) / len(lk_list)
-    print(f'средний бал всех преподователей {course}- {"{:.1f}".format(avg_grade_kurs)}')
-    return avg_grade_kurs
+    lkt_grade_kurs = sum(lk_list) / len(lk_list)
+    print(f'средний бал всех преподователей {course}- {"{:.1f}".format(lkt_grade_kurs)}')
+    return lkt_grade_kurs
 
 
 
