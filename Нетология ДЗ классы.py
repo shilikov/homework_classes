@@ -367,7 +367,7 @@ def lk_grade_kurs(course, leckturrr):
     print(f'средний бал всех преподователей {course}- {"{:.1f}".format(lkt_grade_kurs)}')
     return lkt_grade_kurs
 
-def ser(leckturrr, enrollee):
+def compare(leckturrr, enrollee):
     lk_grader = []
     st_grader = []
     for i in leckturrr:
@@ -473,7 +473,7 @@ st_grade_kurs('Python', enrollee)
 print()
 cprint('{txt:>30}'.format(txt='общий зачет'), color="blue")
 print()
-ser(leckturrr, enrollee)
+compare(leckturrr, enrollee)
 
 
 
