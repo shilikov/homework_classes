@@ -1,3 +1,4 @@
+from termcolor import cprint
 from random import randint
 
 
@@ -84,7 +85,7 @@ class Student:
 
     def __str__(self):
         pass
-        return f'{self.name, self.surname}"\n' \
+        return f'{self.name} {self.surname}"\n' \
                f' средний бал за лекции {"{:.1f}".format(self.grad)}"\n' \
                f'Курсы в процессе изучения: {self.courses_in_progress}"\n' \
                f'Завершенные курсы: {str(self.finished_courses)}'
@@ -105,9 +106,10 @@ class Student:
     def averag_ecore(self):
         st_list = []
         for grade in self.grades.values():
-            for mark in grade:
-                st_list.append(mark)
+            for i in grade:
+                st_list.append(i)
         self.grad = sum(st_list) / len(st_list)
+        print('{} - {:.1f}'.format(self.name, self.grad))
         return self.grad
 
 
@@ -198,15 +200,16 @@ class Lecturer(Mentors):
         self.git = {}
 
     def __str__(self):
-        return f'{self.name, self.surname}"\n' \
+        return f'{self.name} {self.surname}"\n' \
                f' средний бал за лекции {"{:.1f}".format(self.grad)}"'
 
     def averag_ecore(self):
         lk_list = []
         for grade in self.grades.values():
-            for mark in grade:
-                lk_list.append(mark)
+            for i in grade:
+                lk_list.append(i)
         self.grad = sum(lk_list) / len(lk_list)
+        print('{} - {:.1f}'.format(self.name, self.grad))
         return self.grad
 
     def __lt__(self, other):
@@ -279,6 +282,7 @@ dan.courses_attached += ['Python']
 dan.courses_attached += ['Git']
 
 
+
 rew1 = Reviewer('Some', 'Buddy')
 rew1.courses_attached += ['Python']
 rew1.courses_attached += ['Git']
@@ -311,15 +315,15 @@ for k in range(1, 11):
     dan.rate_hw(sader, 'Python', randint(7, 10))
     dan.rate_hw(ruoy, 'Git', randint(7, 10))
     dan.rate_hw(sader, 'Git', randint(7, 10))
-    dan.rate_hw(mas, 'Git', randint(10, 10))
+    # dan.rate_hw(mas, 'Git', randint(10, 10))
+    # dan.rate_hw(mas, 'Python', randint(10, 10))
 
 
 
 
-enrollee = [ruoy, sader
-            ]
-cour = ['Python','Git'
-        ]
+
+enrollee = [ruoy, sader, mas]
+cour = ['Python','Git']
 def st_grades(course, *split):
     i = []
     while len(i) < len(split):
@@ -363,87 +367,113 @@ def lk_grade_kurs(course, leckturrr):
     print(f'средний бал всех преподователей {course}- {"{:.1f}".format(lkt_grade_kurs)}')
     return lkt_grade_kurs
 
+def ser(leckturrr, enrollee):
+    lk_grader = []
+    st_grader = []
+    for i in leckturrr:
+        if i.grades.values() != None:
+            for grade in i.grades.values():
+                for k in grade:
+                    lk_grader.append(k)
+                break
+    lk_grad = (sum(lk_grader)) / len(lk_grader)
+    print('Преподователи {:.1f}'.format(lk_grad))
+    for i in enrollee:
+        if i.grades.values() != None:
+            for grade in i.grades.values():
+                for k in grade:
+                    st_grader.append(k)
+    st_grad = (sum(st_grader)) / len(st_grader)
+    print('Студенты {:.1f}'.format(st_grad))
+    if lk_grad > st_grad:
+        print('В общевм зачете победили Преподователи')
+    else:
+        print('В общевм зачете победили Студенты')
 
 
-print('{txt:>30}'.format(txt='общие данные проверяющего'))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+cprint('{txt:>30}'.format(txt='общие данные проверяющих'), color="blue")
 print()
 print(dan)
-print()
-print('{txt:>30}'.format(txt='общие данные проверяющего'))
 print()
 print(Some)
 print()
 
 lecturer = Lecturer
-print('{txt:>30}'.format(txt='средний бал студента elizar'))
+cprint('{txt:>30}'.format(txt='средний бал лекторов'), color="blue")
 print()
 lecturer.averag_ecore(elizar)
 print()
-print('{txt:>30}'.format(txt='средний бал студента ripli'))
-print()
 lecturer.averag_ecore(ripli)
 print()
-print('{txt:>30}'.format(txt='общие данные преподователя'))
+cprint('{txt:>30}'.format(txt='общие данные преподователей'), color="blue")
 print()
 print(f'{elizar}')
-print()
-print('{txt:>30}'.format(txt='общие данные преподователя'))
 print()
 print(ripli)
 print()
 
 student = Student
-print('{txt:>30}'.format(txt='средний бал студента sader'))
+cprint('{txt:>30}'.format(txt='средний бал студентов'), color="blue")
 print()
 student.averag_ecore(sader)
 print()
-print('{txt:>30}'.format(txt='средний бал студента ruoy'))
-print()
 student.averag_ecore(ruoy)
 print()
-print('{txt:>30}'.format(txt='общие данные студента'))
+cprint('{txt:>30}'.format(txt='общие данные студентов'), color="blue")
 print()
 print(ruoy)
-print()
-print('{txt:>30}'.format(txt='общие данные студента'))
 print()
 print(sader)
 print()
 #
 
-print('{txt:>30}'.format(txt='лучший преподователь курса Python'))
-print()
-lecturer.ikvel(elizar, ripli, 'Python')
-print()
-print('{txt:>30}'.format(txt='лучший преподователь курса Git'))
+
+cprint('{txt:>30}'.format(txt='лучшие преподователи курсоов'), color="blue")
 print()
 lecturer.ikvel(elizar, ripli, 'Git')
+lecturer.ikvel(elizar, ripli, 'Python')
 print()
-print('{txt:>30}'.format(txt='лучший студент курса Python'))
+cprint('{txt:>30}'.format(txt='лучшие студенты курсов'), color="blue")
 print()
+student.ikvel(ruoy, sader, 'Git')
 student.ikvel(ruoy, sader, 'Python')
 print()
-
-print('{txt:>30}'.format(txt='лучший студент курса Git'))
-print()
-print(student.ikvel(ruoy, sader, 'Git'))
-
-print('{txt:>30}'.format(txt='лучший студент'))
+cprint('{txt:>30}'.format(txt='лучший студент'), color="blue")
 print()
 print(sader.__lt__(ruoy))
-print('{txt:>30}'.format(txt='лучший преподователь'))
+print()
+cprint('{txt:>30}'.format(txt='лучший преподователь'), color="blue")
 print()
 print(elizar.__lt__(ripli))
 print()
-print('{txt:>30}'.format(txt='средний бал преподователей в рамках курса'))
+cprint('{txt:>30}'.format(txt='средний бал преподователей в рамках курса'), color="blue")
 print()
 lk_grades('Python', *leckturrr)
 lk_grade_kurs('Git', leckturrr)
 print()
-print('{txt:>30}'.format(txt='средний бал студентов в рамках курса'))
+cprint('{txt:>30}'.format(txt='средний бал студентов в рамках курса'), color="blue")
 print()
 st_grades('Git', *enrollee)
 st_grade_kurs('Python', enrollee)
+print()
+cprint('{txt:>30}'.format(txt='общий зачет'), color="blue")
+print()
+ser(leckturrr, enrollee)
 
 
 
