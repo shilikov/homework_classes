@@ -103,11 +103,11 @@ class Student:
             return 'Ошибка'
 
     def averag_ecore(self):
-        my_list = []
+        st_list = []
         for grade in self.grades.values():
             for mark in grade:
-                my_list.append(mark)
-        self.grad = sum(my_list) / len(my_list)
+                st_list.append(mark)
+        self.grad = sum(st_list) / len(st_list)
         return self.grad
 
 
@@ -202,11 +202,11 @@ class Lecturer(Mentors):
                f' средний бал за лекции {"{:.1f}".format(self.grad)}"'
 
     def averag_ecore(self):
-        my_list = []
+        lk_list = []
         for grade in self.grades.values():
             for mark in grade:
-                my_list.append(mark)
-        self.grad = sum(my_list) / len(my_list)
+                lk_list.append(mark)
+        self.grad = sum(lk_list) / len(lk_list)
         return self.grad
 
     def __lt__(self, other):
@@ -330,14 +330,14 @@ def st_grades(course, *split):
         break
 
 def st_grade_kurs(course, enrollee):
-    mylist = []
+    st_list = []
     for student in enrollee:
         if student.grades.get(course) != None:
             for kurs in student.grades.get(course):
-                mylist.append(kurs)
+                st_list.append(kurs)
         else:
             pass
-    avg_grade_kurs = sum(mylist) / len(mylist)
+    avg_grade_kurs = sum(st_list) / len(st_list)
     print(f'средний бал всех студентов {course}- {"{:.1f}".format(avg_grade_kurs)}')
     return avg_grade_kurs
 
@@ -352,14 +352,14 @@ def lk_grades(course, *split):
         break
 
 def lk_grade_kurs(course, leckturrr):
-    mylist = []
+    lk_list = []
     for lekt in leckturrr:
         if lekt.grades.get(course) != None:
             for kurs in lekt.grades.get(course):
-                mylist.append(kurs)
+                lk_list.append(kurs)
         else:
             pass
-    avg_grade_kurs = sum(mylist) / len(mylist)
+    avg_grade_kurs = sum(lk_list) / len(lk_list)
     print(f'средний бал всех преподователей {course}- {"{:.1f}".format(avg_grade_kurs)}')
     return avg_grade_kurs
 
